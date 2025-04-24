@@ -2,8 +2,8 @@ module.exports = {
     excluded: ["electron.ts"],
     included: [],
     build: {
-        name: "Sample Web Browser Module",
-        id: "developer.Sample_Web_Module",
+        name: "Microsoft Outlook",
+        id: "aarontburn.Microsoft_Outlook",
         process: "./process/main.js",
         replace: [
             {
