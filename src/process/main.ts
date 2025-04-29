@@ -1,4 +1,4 @@
-import { Process } from "@nexus/nexus-module-builder"
+import { Process } from "@nexus-app/nexus-module-builder"
 import { session } from "electron";
 import * as path from "path";
 
