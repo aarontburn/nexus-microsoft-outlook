@@ -19,7 +19,7 @@ export default class SampleProcess extends Process {
             moduleName: MODULE_NAME,
             paths: {
                 iconPath: ICON_PATH,
-                urlPath: "https://go.microsoft.com/fwlink/p/?LinkID=2125442&deeplink=owa%2F%3Fstate%3D1%26redirectTo%3DaHR0cHM6Ly9vdXRsb29rLmxpdmUuY29tL21haWwv"
+                htmlPath: path.join(__dirname, "../renderer/index.html"),
             },
             httpOptions: {
                 userAgent: session
@@ -30,8 +30,21 @@ export default class SampleProcess extends Process {
             }
         });
 
+    }
 
+    public async initialize(): Promise<void> {
+        this.sendToRenderer("params", {
+            url: 'https://outlook.live.com/mail/0/',
+            // url: 'https://go.microsoft.com/fwlink/p/?LinkID=2125442&deeplink=owa%2F%3Fstate%3D1%26redirectTo%3DaHR0cHM6Ly9vdXRsb29rLmxpdmUuY29tL21haWwv',
+            userAgent: session.fromPartition(`persist:${MODULE_ID}`).getUserAgent().replace(/Electron\/*/, ''),
+            partition: `persist:${MODULE_ID}`
+        })
+    }
 
+    public async handleEvent(eventType: string, data: any[]): Promise<any> {
+        switch (eventType) {
+            case "init": this.initialize();
+        }
     }
 
 }
