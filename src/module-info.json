@@ -1,9 +1,33 @@
 {
-    "name": "{EXPORTED_MODULE_NAME}",
-    "author": "aarontburn",
+    "name": "Microsoft Outlook",
+    "id": "aarontburn.Microsoft_Outlook",
     "version": "1.0.0",
+    "author": "aarontburn",
     "description": "A Microsoft Outlook module for Nexus.",
-    "build-version": 2,
     "platforms": [],
-    "link": "https://github.com/aarontburn/nexus-microsoft-outlook"
+    "link": "https://github.com/aarontburn/nexus-microsoft-outlook",
+    "build": {
+        "build-version": 2,
+        "excluded": [
+            "electron.ts"
+        ],
+        "included": [],
+        "process": "./process/main.js",
+        "replace": [
+            {
+                "from": "{EXPORTED_MODULE_ID}",
+                "to": "%id%",
+                "at": [
+                    "./process/main.ts"
+                ]
+            },
+            {
+                "from": "{EXPORTED_MODULE_NAME}",
+                "to": "%name%",
+                "at": [
+                    "./process/main.ts"
+                ]
+            }
+        ]
+    }
 }
