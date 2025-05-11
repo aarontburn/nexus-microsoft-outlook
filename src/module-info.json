@@ -1,11 +1,15 @@
 {
     "name": "Microsoft Outlook",
     "id": "aarontburn.Microsoft_Outlook",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "aarontburn",
     "description": "A Microsoft Outlook module for Nexus.",
     "platforms": [],
     "link": "https://github.com/aarontburn/nexus-microsoft-outlook",
+    "git-latest": {
+        "git-username": "aarontburn",
+        "git-repo-name": "nexus-microsoft-outlook"
+    },
     "build": {
         "build-version": 2,
         "excluded": [
