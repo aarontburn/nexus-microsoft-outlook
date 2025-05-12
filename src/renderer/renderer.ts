@@ -1,10 +1,13 @@
 // Sends information to the the process.
 const sendToProcess = (eventType: string, ...data: any[]): Promise<void> => {
-    return window.parent.ipc.send(window, eventType, data);
+    return window.ipc.sendToProcess(eventType, data);
 }
+
+
+
 const loginURL: string = 'https://go.microsoft.com/fwlink/p/?LinkID=2125442';
 
-window.parent.ipc.on(window, (eventType: string, data: any[]) => {
+window.ipc.onProcessEvent((eventType: string, data: any[]) => {
     switch (eventType) {
         case "params": {
             const { url, userAgent, partition } = data[0];
